@@ -105,13 +105,13 @@
 										<div id="m_bminumber">${userbmi}</div>
 										<div id="m_bmiimage">
 												<c:if test="${userbmi <18.5}">
-														<div>당신은<Br>저체중 입니다</div>
+														<div><img alt="\" src='/ex/resources/src/img/icon/icon_bmi_underweight.png' width="170px" height="170px"></div>
 												</c:if>
-												<c:if test="${18.5 <userbmi || userbmi > 23}">
-														<div>당신은 <br>정상체중 입니다</div>
+												<c:if test="${18.5 <userbmi || userbmi < 23}">
+														<div><img alt="\" src='/ex/resources/src/img/icon/icon_bmi_normal.png' width="90px" height="100px"></div>
 												</c:if>
 												<c:if test="${userbmi > 23}">
-														<div>당신은<br>과체중 입니다.</div>
+														<div><img alt="\" src='/ex/resources/src/img/icon/icon_bmi_extremlyObese.png' width="90px" height="100px"></div>
 												</c:if>
 
 
@@ -165,10 +165,10 @@
 												<h2 class="alertWindow_title">정보수정</h2>
 												<form action="update" method="GET">
 														<p>비밀번호</p>
-														<input class="inputbox_size1" name="userPw" type="text" placeholder="8~16자리의 영문 대소문자, 숫자 및 특수문자 사용" autocomplete="off"  />
+														<input class="inputbox_size1" name="userPw" type="password" placeholder="8~16자리의 영문 대소문자, 숫자 및 특수문자 사용" autocomplete="off"  />
 
 														<p>비밀번호 확인</p>
-														<input class="inputbox_size1" type="text" placeholder="8~16자리의 영문 대소문자, 숫자 및 특수문자 사용" autocomplete="off" />
+														<input class="inputbox_size1" type="password" placeholder="8~16자리의 영문 대소문자, 숫자 및 특수문자 사용" autocomplete="off" />
 
 														<p>닉네임</p>
 														<input class="inputbox_size2" name="userNickname"

@@ -109,8 +109,8 @@
   margin-top: 100px;
   margin-bottom: 53px;
 }
-
-p {
+/* 이거 바꾼부분입니다요!! */
+.ptClassWrap p {
   display: flex;
   gap: 40px;
   font-size: 24px;

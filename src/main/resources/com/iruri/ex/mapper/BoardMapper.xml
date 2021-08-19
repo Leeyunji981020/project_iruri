@@ -32,7 +32,7 @@
 		FROM
 			board
 		WHERE
-			user_id = #{userId} 
+			user_id = #{userId} and board_state = 'show'
 		
 			
 		]]> 
@@ -72,7 +72,7 @@
 		FROM
 			board
 		WHERE
-			user_id = #{userId} and (category_Id = 6)
+			user_id = #{userId} and category_Id = 6 and board_state='show'
 		
 			
 		]]> 
@@ -98,6 +98,8 @@
 		select count(*) from board where user_id = #{userId}
 	]]>
 	</select>
+	
+
 	
 
 	

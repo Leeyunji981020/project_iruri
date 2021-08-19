@@ -330,25 +330,11 @@ SELECT
 	FROM
 	    iclass i, exercise_kind e, iuser B, exercise_date d
 	WHERE
-	    i.class_Id = d.class_Id and i.class_Id = e.class_id and i.class_id IN (select class_id from buy where user_id = #{userId} and buy_id IN (select buy_id from pay where pay_state='pay'))
+	    i.class_Id = d.class_Id and i.class_Id = e.class_id and i.class_id IN 
+	    (select class_id from buy where user_id = #{userId} and buy_id IN (select buy_id from pay where pay_state='pay'))
 					and category_id = 2 and class_enddate < sysdate and i.user_id = b.user_id order by d.exercise_date desc
 		]]>
 	</select>
-
-
-
-	<select id="class_likecount" parameterType="int"
-		resultType="int">
-		<![CDATA[
-		SELECT
-			count(*)
-		FROM
-			iclass
-				WHERE
-			 		 class_id IN ( select class_id from likelist where user_id = #{userId}) and category_id = 2	and class_enddate >= sysdate
-		]]>
-	</select>
-
 
 
 
@@ -366,13 +352,29 @@ FROM
 	FROM
 	    iclass A, iuser B
 	WHERE
-	 A.class_id in ( select class_id from likelist where user_id = #{userId}) and category_id = 2 and class_enddate>= sysdate and A.user_id = b.user_id
+	 A.class_id in ( select class_id from likelist where user_id = #{userId})
+	  and category_id = 2 and class_enddate>= sysdate and A.user_id = b.user_id
    )C
     WHERE rownum <= #{cri.pageNum} * #{cri.amount}
 )
 WHERE rn > (#{cri.pageNum}-1) * #{cri.amount}
  
 		
+		]]>
+	</select>
+
+
+
+
+	<select id="class_likecount" parameterType="int"
+		resultType="int">
+		<![CDATA[
+		SELECT
+			count(*)
+		FROM
+			iclass
+				WHERE
+			 		 class_id IN ( select class_id from likelist where user_id = #{userId}) and category_id = 2	and class_enddate >= sysdate
 		]]>
 	</select>
 
@@ -417,8 +419,6 @@ WHERE rn > (#{cri.pageNum}-1) * #{cri.amount}
 UPDATE pay SET pay_state = 'cancle'
 		WHERE pay_id in (select distinct pay.pay_id  from pay, buy, iclass where buy.user_id = #{userId} 
 			and iclass.class_enddate > sysdate and iclass.category_id = 1 and buy.buy_id = pay.buy_id and buy.class_id = #{classId})
-			
-			
 			
 			]]>
 

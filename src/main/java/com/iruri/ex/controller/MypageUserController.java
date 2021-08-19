@@ -517,14 +517,6 @@ public class MypageUserController {
 			    model.addAttribute("userclasslist",userclasslistvo);	
 			    
 			    
-			    // 관심 클래스 list
-				/*
-				 * List<IClassVO> userclasslikelist =
-				 * userchallengeService.userclasslikelist(vo.getUserId());
-				 * log.info(userclasslikelist);
-				 * model.addAttribute("userclasslikelist",userclasslikelist);
-				 */
-			    
 			    // 관심클래스 종류 list
 			    List<IClassVO> userclasslikelist_kind = userchallengeService.userclasslikelist_kind(vo.getUserId());
 			    log.info(userclasslikelist_kind);

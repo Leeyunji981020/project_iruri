@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <%@ include file="include/static.jsp" %> <!-- 경로를 확인해 주세요 -->
+    <%@ include file="../include/static.jsp" %> <!-- 경로를 확인해 주세요 -->
     <title>이루리 운동영상</title> <!-- 페이지 이름을 적어주세요 -->
     <script src="${RESOURCES_PATH}/src/js/challenge/c_modal.js" defer></script>
     <script src="${RESOURCES_PATH}/src/js/challenge/c_select.js" defer></script>
@@ -17,7 +17,7 @@
   <body>
     <div class="iruri__wrapper">
 
-     <%@ include file="include/headerTemplate.jsp" %> <!-- 경로를 확인해 주세요 -->
+     <%@ include file="../include/headerTemplate.jsp" %> <!-- 경로를 확인해 주세요 -->
 
       <main>
         
@@ -230,7 +230,7 @@
     </div>
       </main>
       
-    <%@ include file="include/footerTemplate.jsp" %> <!-- 경로를 확인해 주세요 --> 
+    <%@ include file="../include/footerTemplate.jsp" %> <!-- 경로를 확인해 주세요 --> 
     
     </div>    
   </body>
